@@ -1,0 +1,55 @@
+
+php artisan make:model Category -m
+
+
+=>FILAMENT
+php artisan make:filament-resource --generate
+
+
+=>FILAMENT CUSTOM ROLES
+php artisan make:filament-resource User
+
+=>RELACION
+php artisan make:filament-relation-manager SaleResource profiles body
+
+=>CREAR POLITICA
+php artisan make:policy UserPolicy --model=User
+php artisan make:policy RolePolicy --model=Role
+php artisan make:model Role
+
+=>PLUGIN
+Excel Export
+Curator
+Spatie Laravel Backup
+Spatie Laravel Health
+Jobs monitor
+
+
+=> ANTES DE SUBIR AL HOSTING APLICAR ESTOS COMANDOS
+php artisan config:show database
+
+cp .env .env.production
+
+php artisan route:clear
+php artisan route:cache
+php artisan optimize
+php artisan optimize:clear
+php artisan config:cache
+
+=> PARA CAMBIAR DE ENTORNO A PROD O DEV
+php artisan cache:clear
+php artisan config:clear
+
+php artisan env => Para ver en que entorno
+php artisan tinker
+>>> env('APP_ENV')
+
+php artisan --env=production tinker
+
+=> POLITICAS
+ php artisan make:policy UserPolicy --model=User
+
+ php artisan make:model Role
+
+=>MIDDLEWARE
+php artisan make:middleware VerifyIsAdmin
